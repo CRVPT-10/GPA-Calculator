@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Marks Analyzer & Grade Predictor</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Marks Analyzer & Grade Predictor</h1>
+            <p class="subtitle">Analyze internal marks and predict external exam requirements</p>
+        </header>
+
+        <div class="tabs">
+            <button class="tab-btn active" id="detailed-tab">Detailed Entry</button>
+            <button class="tab-btn" id="simple-tab">Simple Entry</button>
+        </div>
+
+        <div class="card info-box">
+            <h3>How It Works</h3>
+            <ul>
+                <li>Enter subject details and internal assessment marks</li>
+                <li>System calculates your internal marks (Mid Avg + Assignment Avg)</li>
+                <li>Predicts minimum external marks needed for each grade</li>
+                <li>Highlights impossible grades in red</li>
+            </ul>
+        </div>
+
+        <div class="controls">
+            <button id="add-subject" class="btn btn-primary"><i class="fas fa-plus"></i> Add Subject</button>
+            <button id="predict-all" class="btn btn-success"><i class="fas fa-calculator"></i> Predict All Grades</button>
+            <button id="reset-all" class="btn btn-danger"><i class="fas fa-undo"></i> Reset All</button>
+        </div>
+
+        <div class="table-container">
+            <table id="subjects-table">
+                <thead>
+                    <tr id="header-row">
+                        <th>Subject Name</th>
+                        <th class="internal-col">Internal Marks (out of 50)</th>
+                        <th colspan="6" class="grade-header">
+                            <div class="grade-labels">
+                                <div class="grade-label o">O (≥90)</div>
+                                <div class="grade-label ap">A+ (80-89)</div>
+                                <div class="grade-label a">A (70-79)</div>
+                                <div class="grade-label bp">B+ (60-69)</div>
+                                <div class="grade-label b">B (50-59)</div>
+                                <div class="grade-label c">C (40-49)</div>
+                            </div>
+                        </th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody id="subjects-body">
+                    <!-- Subjects will be injected here -->
+                </tbody>
+            </table>
+        </div>
+
+
+        <div class="summary-card">
+            <div class="gpa-display">
+                <span class="label">Total GPA:</span>
+                <span id="total-gpa" class="value">0.00</span>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
