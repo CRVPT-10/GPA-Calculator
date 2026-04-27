@@ -306,18 +306,30 @@ function setupEventListeners() {
     };
 
     document.getElementById('add-subject').onclick = () => {
+        const name = prompt("Enter Subject Name:", "New Subject");
+        if (!name) return;
+        
+        const creditsInput = prompt("Enter Credits:", "3.0");
+        if (creditsInput === null) return;
+        const credits = parseFloat(creditsInput) || 3.0;
+
         subjects.push({
             id: Date.now(),
-            name: "New Subject",
-            credits: 3.0,
+            name: name,
+            credits: credits,
+            type: "theory", // Default to theory
             mid1: 0,
             mid2: 0,
             assig1: 0,
             assig2: 0,
+            dayToDay: 0,
+            skill1: 0,
+            skill2: 0,
             simpleInternal: 0,
             targetGrade: null
         });
         renderTable();
+        saveToLocalStorage();
     };
 
     document.getElementById('reset-all').onclick = () => {
